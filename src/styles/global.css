@@ -4,15 +4,15 @@
 }
 
 :root {
-  --text: #000;
-  --background: #fff;
+  --text: #fff;
+  --background: #000;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --text: #fff;
   }
-}
+} */
 
 body {
   font-family: Helvetica, sans-serif;
