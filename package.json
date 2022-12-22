@@ -1,0 +1,17 @@
+{
+  "name": "prpl-example-basic",
+  "version": "0.0.1",
+  "description": "Basic PRPL example site",
+  "scripts": {
+    "clear": "rimraf dist",
+    "dev": "npm run clear && prpl && prpl-server",
+    "build": "npm run clear && prpl"
+  },
+  "dependencies": {
+    "@prpl/core": "^0.4.0"
+  },
+  "devDependencies": {
+    "@prpl/server": "^0.2.0",
+    "rimraf": "^3.0.2"
+  }
+}
