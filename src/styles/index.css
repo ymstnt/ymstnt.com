@@ -1,0 +1,61 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(38deg, rgba(0,0,0,1) 0%, rgba(0,51,143,1) 55%, rgba(0,123,191,1) 100%);
+  padding: 2em;
+}
+
+.index {
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
+}
+
+#profile {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background: #181825;
+  max-width: 30em;
+  border-radius: 1em;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+#profilepic {
+  height: 8.7em;
+  border-radius: 50%
+}
+
+#general-info {
+  line-height: 5px;
+}
+
+#bio {
+  font-weight: bold;
+}
+
+#pronouns {
+  color: gray;
+}
+
+#profile-items {
+  padding: .5em 0 0 0;
+  margin: 1.5em 0 0 0;
+  letter-spacing: .5em;
+}
+
+#profile-items a {
+  text-decoration: none;
+}
+
+#introduction {
+  text-align: left;
+}
+
+#pronouncination {
+  color: gray;
+  font-style: italic;
+}

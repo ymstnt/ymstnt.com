@@ -11,12 +11,11 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #fff;
-    --background: #000;
   }
 }
 
 body {
-  font-family: 'system-ui', sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0.2px;
@@ -31,7 +30,6 @@ main {
 a {
   text-decoration: none;
   padding-bottom: 0.1em;
-  border-bottom: 1px dashed;
 }
 
 a:link,
