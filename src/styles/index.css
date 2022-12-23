@@ -2,14 +2,18 @@ html {
   height: 100%;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 body {
   background: linear-gradient(38deg, rgba(0,0,0,1) 0%, rgba(0,51,143,1) 55%, rgba(0,123,191,1) 100%);
   background-repeat: no-repeat;
-  padding: 2em;
-  height: 100%;
+  padding: 2em; 
   background-attachment: fixed;
   overflow-wrap: break-word;
-  margin: auto;
+  margin: 0;
+  font-size: 1em;
 }
 
 .index {
