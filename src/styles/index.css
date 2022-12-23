@@ -38,16 +38,14 @@ body {
   border-radius: 50%
 }
 
-#general-info {
-  line-height: 5px;
-}
-
 #bio {
   font-weight: bold;
+  margin: 0;
 }
 
 #pronouns {
   color: gray;
+  padding: 1em;
 }
 
 #profile-items {
@@ -67,4 +65,14 @@ body {
 #pronouncination {
   color: gray;
   font-style: italic;
+}
+
+@media (max-width: 500px) {
+	body {
+		font-size: 1em;
+		padding: 1em;
+	}
+	main {
+		padding: 1.5em;
+	}
 }
