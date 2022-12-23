@@ -54,6 +54,10 @@ body {
   letter-spacing: .5em;
 }
 
+#profile-items p {
+  letter-spacing: normal;
+}
+
 #profile-items a {
   text-decoration: none;
 }
