@@ -1,17 +1,16 @@
 {
-  "name": "prpl-example-basic",
+  "name": "@example/minimal",
+  "type": "module",
   "version": "0.0.1",
-  "description": "Basic PRPL example site",
+  "private": true,
   "scripts": {
-    "clear": "rimraf dist",
-    "dev": "npm run clear && prpl && prpl-server",
-    "build": "npm run clear && prpl"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@prpl/core": "^0.4.0"
-  },
-  "devDependencies": {
-    "@prpl/server": "^0.2.0",
-    "rimraf": "^3.0.2"
+    "astro": "^1.9.0"
   }
 }
