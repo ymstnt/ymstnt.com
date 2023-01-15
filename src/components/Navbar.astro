@@ -1,0 +1,81 @@
+---
+const { title } = Astro.props;
+---
+
+<nav>
+  <a href="/" id="title">
+    <h2>{title}</h2>
+  </a>
+  <div id="buttons">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
+      <li>
+        <a href="/gepDrive">gepDrive</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  nav {
+    background-color: #181820;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    max-height: 70px;
+  }
+
+  h2 {
+    cursor: pointer;
+  }
+
+  #buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  ul {
+    float: right;
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  li {
+    float: left;
+  }
+
+  a {
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5em;
+    color: gray;
+    transition: 0.15s ease;
+    transition-property: color, text-decoration;
+  }
+
+  a:hover {
+    color: gray;
+    text-decoration: underline;
+  }
+
+  #title:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    nav {
+        position: relative;
+        flex-direction: column;
+        max-height: 200px;
+    }
+  }
+</style>
