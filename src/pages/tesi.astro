@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { updateDays } from "../scripts/tesi.js";
+---
+
+<Layout title="YMSTNT" description="YMSTNT's personal site">
+  <section id="main">
+    <p>Hátralévő tesik: <h1>{updateDays}</h1></p>
+    <label for="include-mondays">Hétfők:</label>
+    <input type="checkbox" id="include-mondays" onchange="updateDays()" checked>
+  </section>
+</Layout>
+
+<script is:inline>
+  console.log(document, window)
+</script>
+
+<script>
+  console.log(document, window)
+</script>
