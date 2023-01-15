@@ -3,6 +3,8 @@ import "../styles/global.css";
 
 import Navbar from "../components/Navbar.astro";
 
+import { AUTHOR, ICON, THEME_COLOR } from "../scripts-ssr/constants";
+
 export interface Props {
   title: string;
   description: string;
@@ -18,6 +20,14 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={AUTHOR} />
+    <meta name="theme-color" content={THEME_COLOR} />
+
+    <meta name="og:type" content="website" />
+    <meta name="og:title" content={title} />
+    <meta name="og:description" content={description} />
+    <meta name="og:image" content={ICON} />
+    
     <link rel="icon" href="/favicon.ico" />
   </head>
   <body>
