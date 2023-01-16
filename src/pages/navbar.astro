@@ -1,0 +1,14 @@
+---
+import Navbar from "../components/Navbar.astro";
+
+import { AUTHOR, ICON, THEME_COLOR } from "../scripts-ssr/constants";
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Navbar title={title}></Navbar>
