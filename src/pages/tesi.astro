@@ -1,21 +1,65 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-import { updateDays } from "../scripts/tesi.js";
 ---
-
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <Layout title="YMSTNT" description="YMSTNT's personal site">
   <section id="main">
-    <p>Hátralévő tesik: <h1>{updateDays}</h1></p>
+    <p>Hátralévő tesik: <h1 id="count"></h1></p>
     <label for="include-mondays">Hétfők:</label>
-    <input type="checkbox" id="include-mondays" onchange="updateDays()" checked>
+    <input
+      type="checkbox"
+      id="include-mondays"
+      onchange="updateDays()"
+      checked
+    />
   </section>
 </Layout>
 
 <script is:inline>
-  console.log(document, window)
-</script>
+  function updateDays() {
+    var start = moment();
+    if (start.hours() > 16) {
+      start.add(1, "day");
+    }
+    var end = moment("2023-05-06");
 
-<script>
-  console.log(document, window)
+    var holidays = [
+      moment("2023-01-01"),
+      moment("2023-01-02"),
+      moment("2023-01-03"),
+      moment("2023-01-04"),
+      moment("2023-01-05"),
+      moment("2023-01-06"),
+      moment("2023-03-15"),
+      moment("2023-04-06"),
+      moment("2023-04-07"),
+      moment("2023-04-10"),
+      moment("2023-04-11"),
+      moment("2023-05-01"),
+      moment("2023-05-29"),
+    ];
+
+    const includeMondays = document.querySelector("#include-mondays").checked;
+    let days = 0;
+
+    // Count the days
+    for (let current = moment(start); current < end; current.add(1, "day")) {
+      const dayOfWeek = current.day();
+      // Skip saturday and sunday
+      if (dayOfWeek == 6 || dayOfWeek == 0) continue;
+      // Skip monday if include mondays is turned off
+      if (!includeMondays && dayOfWeek == 1) continue;
+      // Skip if holiday
+      const isHoliday = holidays.some((holiday) =>
+        current.isSame(holiday, "day")
+      );
+      if (isHoliday) continue;
+      // Increment days when it passed all the previous checks
+      days++;
+    }
+
+    document.querySelector("#count").innerHTML = days;
+  }
+
+  updateDays();
 </script>
