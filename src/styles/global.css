@@ -8,12 +8,6 @@
   --background: #1e1e2e;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --text: #fff;
-  }
-} */
-
 body {
   font-family: Helvetica, sans-serif;
   line-height: 26px;
