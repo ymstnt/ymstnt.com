@@ -1,17 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
+></script>
 <Layout title="YMSTNT" description="YMSTNT's personal site">
-  <section id="main">
-    <p>Hátralévő tesik: <h1 id="count"></h1></p>
-    <label for="include-mondays">Hétfők:</label>
-    <input
-      type="checkbox"
-      id="include-mondays"
-      onchange="updateDays()"
-      checked
-    />
+  <section id="tesi-section">
+    <div id="tesi">
+      <p>Hátralévő tesik:</p>
+      <h1 id="count"></h1>
+      <label for="include-mondays">Hétfők:</label>
+      <input
+        type="checkbox"
+        id="include-mondays"
+        onchange="updateDays()"
+        checked
+      />
+    </div>
   </section>
 </Layout>
 
@@ -21,7 +28,7 @@ import Layout from "../layouts/Layout.astro";
     if (start.hours() > 16) {
       start.add(1, "day");
     }
-    var end = moment("2023-05-06");
+    var end = moment("2023-04-28");
 
     var holidays = [
       moment("2023-01-01"),
@@ -63,3 +70,50 @@ import Layout from "../layouts/Layout.astro";
 
   updateDays();
 </script>
+
+<style>
+  html {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+
+  #tesi-section {
+    margin: 0 auto;
+    max-width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #tesi {
+    justify-content: center;
+    align-items: center;
+    background: #181825;
+    max-width: 20em;
+    border-radius: 1em;
+    padding: 2em;
+    margin: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    body {
+      font-size: 1em;
+    }
+    main {
+      padding: 1.5em;
+    }
+    #tesi-section {
+      left: unset;
+      transform: unset;
+      position: unset;
+    }
+  }
+</style>
