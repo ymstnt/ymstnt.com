@@ -4,7 +4,6 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="YMSTNT" description="YMSTNT's personal site">
   <section id="profile-section">
-    <div id="profile">
       <div id="profilepic-container">
         <img
           src="/tnt512.png"
@@ -143,7 +142,6 @@ import Layout from "../layouts/Layout.astro";
           games and aquariums.
         </p>
       </div>
-    </div>
   </section>
 </Layout>
 
@@ -163,20 +161,12 @@ import Layout from "../layouts/Layout.astro";
   }
 
   #profile-section {
-    margin: 0 auto;
-    max-width: 500px;
-    justify-content: center;
-    display: flex;
-  }
-
-  #profile {
     display: block;
     justify-content: center;
     align-items: center;
     background: #181825;
     max-width: 30em;
     border-radius: 1em;
-    position: absolute;
     margin: 2em auto;
     padding: 2em;
     text-align: center;
@@ -232,7 +222,7 @@ import Layout from "../layouts/Layout.astro";
       padding: 1.5em;
     }
     #profile-section {
-      display: unset;
+      margin: 2em;
     }
   }
 </style>
