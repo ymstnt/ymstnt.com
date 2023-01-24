@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 Not Found" description="Are you lost?">
+  <section id="error-section">
+    <h1>Oh no!</h1>
+    <h3>That page was not found. (404)</h3>
+
+    <p>
+      You may have followed a broken link or this part of the site is under
+      construction.
+    </p>
+    <p>Either way, click below to get back home!</p>
+    <div id="homebutton-container">
+      <h3>Home</h3>
+      <a href="/">
+        <span id="homebutton"></span>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  #error-section {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background: #181825;
+    max-width: 30em;
+    border-radius: 1em;
+    margin: 2em auto;
+    padding: 2em;
+    text-align: center;
+  }
+
+  #homebutton-container {
+    padding: 2px;
+    background-color: #0055a6;
+    border-radius: 0.5em;
+    margin: 0 7em;
+    cursor: pointer;
+    position: relative;
+  }
+
+  #homebutton {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  @media (max-width: 500px) {
+    body {
+      font-size: 1em;
+    }
+    main {
+      padding: 1.5em;
+    }
+    #error-section {
+      margin: 2em;
+      min-width: 15em
+    }
+    #homebutton-container {
+      margin: 0 5em;
+    }
+  }
+</style>
