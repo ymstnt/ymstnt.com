@@ -1,0 +1,59 @@
+---
+import BlogLayout from "./BlogLayout.astro";
+const { frontmatter } = Astro.props;
+
+const dateOptions: object = {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+};
+
+const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
+	"en-GB",
+	dateOptions
+);
+---
+<BlogLayout title="TNT's Blog" description="TNT's Blog">
+  <section id="image">
+    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+  </section>
+    <h1>{frontmatter.title}</h1>
+    <p id="date">Published on: {formattedPublishDate}</p>
+    <!-- <p><em>{frontmatter.description}</em></p> -->
+    <div class="tags">
+      {frontmatter.tags.map((tag) => (
+        <tag><a href={`/tags/${tag}`}>{tag}</a></tag>
+      ))}
+    </div>
+    <hr>
+  <slot />
+</BlogLayout>
+
+<style>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  tag {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #181825;
+    border: #181825 1px solid;
+  }
+
+  tag:hover, tag:active {
+    border: lightblue 1px solid;
+  }
+
+  #image img {
+    width: 100%;
+  }
+
+  #date {
+    color: #666;
+  }
+</style>

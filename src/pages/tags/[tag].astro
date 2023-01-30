@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob("../posts/*.md");
+
+  allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
+  
+  return [
+    { params: { tag: "software" }, props: { posts: allPosts } },
+    { params: { tag: "aquarium" }, props: { posts: allPosts } },
+    { params: { tag: "hardware" }, props: { posts: allPosts } },
+    { params: { tag: "experience" }, props: { posts: allPosts } },
+    { params: { tag: "gaming" }, props: { posts: allPosts } },
+  ];
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const filteredPosts = posts.filter((post) =>
+  post.frontmatter.tags.includes(tag)
+);
+---
+
+<Layout title="TNT's Blog" description="Tagged posts">
+  <section id="article-list">
+    <h2>Posts tagged with <u>{tag}</u>:</h2>
+    {
+      filteredPosts.map((post) => (
+        <BlogPost
+          url={post.url}
+          description={post.frontmatter.description}
+          title={post.frontmatter.title}
+          date={post.frontmatter.pubDate.slice(0, 10)}
+        />
+      ))
+    }
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+  #article-list {
+    margin: 0 auto;
+    max-width: 900px;
+    /* padding: 0 1rem; */
+  }
+
+  @media (max-width: 500px) {
+    body {
+      font-size: 1em;
+    }
+    #article-list {
+      padding: 0 1.5em;
+    }
+  }
+</style>
