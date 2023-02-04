@@ -10,7 +10,8 @@ html {
 
 :root {
   --text: #fff;
-  --background: #1e1e2e;
+  /* --background: #1e1e2e; */
+  --background: #202030;
 }
 
 body {
