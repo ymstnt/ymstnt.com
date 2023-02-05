@@ -9,9 +9,13 @@ html {
 }
 
 :root {
-  --text: #fff;
+  --text: #F7F7F7;
+  --text-muted: #C3C3C3;
+
   /* --background: #1e1e2e; */
-  --background: #202030;
+  --background: #1f1f2f;
+  --surface1: #181825;
+  --surface2: #11111b;
 }
 
 body {

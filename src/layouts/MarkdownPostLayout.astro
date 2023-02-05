@@ -3,30 +3,40 @@ import BlogLayout from "./BlogLayout.astro";
 const { frontmatter } = Astro.props;
 
 const dateOptions: object = {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 };
 
 const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
-	"en-GB",
-	dateOptions
+  "en-US",
+  dateOptions
 );
 ---
+
 <BlogLayout title="TNT's Blog" description="TNT's Blog">
   <section id="image">
     <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
   </section>
-    <h1>{frontmatter.title}</h1>
-    <p id="date">Published on: {formattedPublishDate}</p>
-    <!-- <p><em>{frontmatter.description}</em></p> -->
-    <div class="tags">
-      {frontmatter.tags.map((tag) => (
-        <tag><a href={`/tags/${tag}`}>{tag}</a></tag>
-      ))}
-    </div>
-    <hr>
-  <slot />
+  <h1>{frontmatter.title}</h1>
+  <p id="date">Published on: {formattedPublishDate}</p>
+  <!-- <p><em>{frontmatter.description}</em></p> -->
+  <div class="tags">
+    {
+      frontmatter.tags.map((tag) => (
+        <tag>
+          {tag}
+          <a href={`/tags/${tag}`}>
+            <span class="ref"></span>
+          </a>
+        </tag>
+      ))
+    }
+  </div>
+  <hr />
+  <span id="article">
+    <slot/>
+  </span>
 </BlogLayout>
 
 <style>
@@ -41,12 +51,28 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
     margin-bottom: 0.5rem;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
-    background-color: #181825;
-    border: #181825 1px solid;
+    background-color: var(--surface1);
+    border: var(--surface1) 1px solid;
+    cursor: pointer;
+    position: relative;
   }
 
-  tag:hover, tag:active {
+  tag:hover,
+  tag:active {
     border: lightblue 1px solid;
+  }
+
+  .ref {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  #article {
+    color: var(--text-muted);
   }
 
   #image img {

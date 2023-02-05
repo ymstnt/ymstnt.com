@@ -1,27 +1,39 @@
 ---
-const { title, url, description, date } = Astro.props;
+import "../styles/global.css";
+
+const { title, url, description, date, tags } = Astro.props;
 
 const dateOptions: object = {
-	year: "numeric",
-	month: "short",
-	day: "numeric",
+  year: "numeric",
+  month: "short",
+  day: "numeric",
 };
 
 const formattedPublishDate = new Date(date).toLocaleDateString(
-	"en-GB",
-	dateOptions
+  "en-US",
+  dateOptions
 );
 ---
 
 <div id="card">
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <a href={url}>
-      <span id="ref"></span>
-    </a>
-    <div class="footer">
-      <span class="date">{formattedPublishDate}</span>
-    </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <a href={url}>
+    <span id="ref"></span>
+  </a>
+  <div class="footer">
+    <span class="date">{formattedPublishDate}</span>
+    <br>
+    <span class="tags">
+      {
+        tags.map((tag) => (
+          <tag>
+            {tag}
+          </tag>
+        ))
+      }
+      </span>
+  </div>
 </div>
 
 <style>
@@ -31,9 +43,9 @@ const formattedPublishDate = new Date(date).toLocaleDateString(
 
   #card {
     display: block;
-    background: #181825;
+    background: var(--surface1);
     max-width: 30em;
-    border: #181825 1px solid;
+    border: var(--surface1) 1px solid;
     border-radius: 1em;
     margin: 2em auto;
     padding: 1.5em;
@@ -41,7 +53,8 @@ const formattedPublishDate = new Date(date).toLocaleDateString(
     position: relative;
   }
 
-  #card:hover, #card:active {
+  #card:hover,
+  #card:active {
     border: lightblue 1px solid;
   }
 
@@ -54,8 +67,23 @@ const formattedPublishDate = new Date(date).toLocaleDateString(
     z-index: 1;
   }
 
+  tag {
+    display: inline-block;
+    margin-top: 0.2rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.1rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--surface2);
+    border: var(--surface2) 1px solid;
+    color: var(--text-muted);
+  }
+
   .footer {
     font-size: smaller;
   }
-</style>
 
+  .date {
+    color: #666;
+  }
+</style>

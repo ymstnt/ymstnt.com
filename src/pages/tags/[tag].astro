@@ -1,6 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../components/BlogPost.astro";
+import TagPane from "../../components/TagPane.astro";
+
+import "../../styles/grid.css";
 
 export async function getStaticPaths() {
   const allPosts = await Astro.glob("../posts/*.md");
@@ -24,25 +27,36 @@ const filteredPosts = posts.filter((post) =>
 ---
 
 <Layout title="TNT's Blog" description="Tagged posts">
-  <section id="article-list">
-    <h2>Posts tagged with <u>{tag}</u>:</h2>
-    {
-      filteredPosts.map((post) => (
-        <BlogPost
-          url={post.url}
-          description={post.frontmatter.description}
-          title={post.frontmatter.title}
-          date={post.frontmatter.pubDate.slice(0, 10)}
-        />
-      ))
-    }
-  </section>
+  <div class="grid">
+    <h2>Posts tagged with <span id="highlight">{tag}</span>:</h2>
+    <div id="article-list" class="col-65 left">
+      {
+        filteredPosts.map((post) => (
+          <BlogPost
+            url={post.url}
+            description={post.frontmatter.description}
+            title={post.frontmatter.title}
+            date={post.frontmatter.pubDate.slice(0, 10)}
+            tags={post.frontmatter.tags}
+          />
+        ))
+      }
+    </div>
+    <div class="col-33 right">
+      <TagPane></TagPane>
+    </div> 
+  </div>
 </Layout>
 
 <style>
-  h1 {
-    text-align: center;
+  h2 {
+    margin-bottom: 0;
   }
+
+  #highlight {
+    color: #ccc;
+  }
+
   #article-list {
     margin: 0 auto;
     max-width: 900px;
