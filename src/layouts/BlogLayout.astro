@@ -8,9 +8,10 @@ import { AUTHOR, ICON, THEME_COLOR } from "../scripts-ssr/constants";
 export interface Props {
   title: string;
   description: string;
+  nav: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, nav } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <header>
-      <Navbar title="TNT's Blog" />
+      <Navbar title="TNT's Blog" nav="/blog"/>
     </header>
     <article id="blog-body">
       <slot />
