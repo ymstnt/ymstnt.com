@@ -11,13 +11,13 @@ import Layout from "../layouts/Layout.astro";
     <div id="tesi">
       <p>Hátralévő tesik:</p>
       <h1 id="count"></h1>
-      <label for="include-mondays">Hétfők:</label>
+      <!--<label for="include-mondays">Hétfők:</label>
       <input
         type="checkbox"
         id="include-mondays"
         onchange="updateDays()"
         checked
-      />
+      />-->
     </div>
   </section>
 </Layout>
@@ -51,7 +51,7 @@ import Layout from "../layouts/Layout.astro";
       moment("2023-05-29"),
     ];
 
-    const includeMondays = document.querySelector("#include-mondays").checked;
+    //const includeMondays = document.querySelector("#include-mondays").checked;
     let days = 0;
 
     // Count the days
@@ -60,7 +60,7 @@ import Layout from "../layouts/Layout.astro";
       // Skip saturday and sunday
       if (dayOfWeek == 6 || dayOfWeek == 0) continue;
       // Skip monday if include mondays is turned off
-      if (!includeMondays && dayOfWeek == 1) continue;
+      //if (!includeMondays && dayOfWeek == 1) continue;
       // Skip if holiday
       const isHoliday = holidays.some((holiday) =>
         current.isSame(holiday, "day")
