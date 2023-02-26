@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url("/fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,7 +28,7 @@ html {
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: "Inter var", system-ui, sans-serif;
   line-height: 26px;
   letter-spacing: 0.2px;
   color: var(--text);
