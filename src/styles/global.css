@@ -30,7 +30,7 @@ html {
 body {
   font-family: "Inter var", system-ui, sans-serif;
   line-height: 26px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
   color: var(--text);
   background-color: var(--background);
   margin: auto;
