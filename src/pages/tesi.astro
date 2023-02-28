@@ -9,8 +9,10 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="YMSTNT" description="YMSTNT's personal site" nav="/">
   <section id="tesi-section">
     <div id="tesi">
-      <p>Hátralévő tesik:</p>
+      <p>Már csak</p>
       <h1 id="count"></h1>
+      <p>darab tesi van hátra.</p>
+      <p class="small">Ebből már csak <span id="firstLessons"></span> darab van az első órában.</p>
       <!--<label for="include-mondays">Hétfők:</label>
       <input
         type="checkbox"
@@ -58,6 +60,7 @@ import Layout from "../layouts/Layout.astro";
 
     //const includeMondays = document.querySelector("#include-mondays").checked;
     let days = 0;
+    let firstLessonDays = 0;
 
     // Count the days
     for (let current = moment(start); current < end; current.add(1, "day")) {
@@ -71,11 +74,17 @@ import Layout from "../layouts/Layout.astro";
         current.isSame(holiday, "day")
       );
       if (isHoliday) continue;
+
+      if (dayOfWeek == 1 || dayOfWeek == 2) {
+        firstLessonDays++;
+      }
+
       // Increment days when it passed all the previous checks
       days++;
     }
 
     document.querySelector("#count").innerHTML = days;
+    document.querySelector("#firstLessons").innerHTML = firstLessonDays;
   }
 
   updateDays();
@@ -110,7 +119,20 @@ import Layout from "../layouts/Layout.astro";
   }
 
   p {
-    font-size: 1.3em;
+    font-size: 1.2em;
+  }
+
+  p, h1 {
+    margin: 0.7em;
+  }
+
+  .small {
+    font-size: 0.9em;
+    margin: 0;
+  }
+
+  #firstLessons {
+    font-weight: bold;
   }
 
   h1 {
