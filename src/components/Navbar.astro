@@ -3,9 +3,7 @@ const { title, nav } = Astro.props;
 ---
 
 <nav>
-  <a href={nav} id="title">
-    <h2>{title}</h2>
-  </a>
+  <h2><a href={nav} id="title">{title}</a></h2>
   <div id="buttons">
     <ul>
       <li>
@@ -33,6 +31,7 @@ const { title, nav } = Astro.props;
 
   h2 {
     cursor: pointer;
+    padding: 0.4em;
   }
 
   #buttons {
