@@ -9,10 +9,10 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="YMSTNT" description="YMSTNT's personal site" nav="/">
   <section id="tesi-section">
     <div id="tesi">
-      <p>Már csak</p>
+      <p id="precount">Már csak</p>
       <h1 id="count"></h1>
-      <p>darab tesi van hátra.</p>
-      <p class="small">Ebből már csak <span id="firstLessons"></span> darab van az első órában.</p>
+      <p id="aftercount">darab tesi van hátra.</p>
+      <p id="firstLessonParagraph" class="small">Ebből már csak <span id="firstLessons"></span> darab van az első órában.</p>
       <!--<label for="include-mondays">Hétfők:</label>
       <input
         type="checkbox"
@@ -94,8 +94,25 @@ import Layout from "../layouts/Layout.astro";
       days++;
     }
 
-    document.querySelector("#count").innerHTML = days;
-    document.querySelector("#firstLessons").innerHTML = firstLessonDays;
+    if (days > 0) {
+      document.querySelector("#count").innerHTML = days;
+    }
+    else 
+    {
+      document.querySelector("#precount").innerHTML = "Nincs több tesi óra!"
+      document.querySelector("#count").innerHTML = "🎉🎉🎉";
+      document.querySelector("#aftercount").remove();
+      document.querySelector("#firstLessonParagraph").remove();
+    }
+
+    if (firstLessonDays > 0) {
+      document.querySelector("#firstLessons").innerHTML = firstLessonDays;
+    }
+    else
+    {
+      document.querySelector("#firstLessonParagraph").innerHTML = "Nincs több tesi első órában! 🎉"
+      document.querySelector("#firstLessons").remove();
+    }
   }
 
   updateDays();
