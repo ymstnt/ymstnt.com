@@ -27,7 +27,18 @@ import Layout from "../layouts/Layout.astro";
 <script is:inline>
   function updateDays() {
     var start = moment();
-    if (start.hours() > 16) {
+    let timeToDateTime = (hours, minutes) => {
+      return start.clone().startOf('day').add(hours, 'hours').add(minutes, 'minutes');
+    };
+    let hours = [
+      timeToDateTime(8, 45),
+      timeToDateTime(8, 45),
+      timeToDateTime(14, 35),
+      timeToDateTime(11, 35),
+      timeToDateTime(11, 35),
+    ];
+
+    if (start > hours[(start.day() - 1 + 7) % 7]) {
       start.add(1, "day");
     }
     var end = moment("2023-04-28");
