@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
   is:inline
   src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
 ></script>
-<Layout title="YMSTNT" description="Tesi kb. a legrosszabb tantárgy, számoljunk vissza!" nav="/">
+<Layout title="YMSTNT" description="Tesi a legrosszabb tantárgy, mennyi van még hátra?" nav="/">
   <section id="tesi-section">
     <div id="tesi">
       <p id="precount">Már csak</p>
@@ -94,6 +94,22 @@ import Layout from "../layouts/Layout.astro";
       days++;
     }
 
+    if (days <= 20 && days > 10) {
+      document.querySelector("#count").style.color = "aqua";
+    } else if (days <= 10 && days > 5) {
+      document.querySelector("#count").style.color = "yellow";
+    } else if (days <= 5) {
+      document.querySelector("#count").style.color = "lime";
+    }
+
+    if (firstLessonDays <= 20 && firstLessonDays > 10) {
+      document.querySelector("#firstLessons").style.color = "aqua";
+    } else if (firstLessonDays <= 10 && firstLessonDays > 5) {
+      document.querySelector("#firstLessons").style.color = "yellow";
+    } else if (firstLessonDays <= 5) {
+      document.querySelector("#firstLessons").style.color = "lime";
+    }
+
     if (days > 0) {
       document.querySelector("#count").innerHTML = days;
     }
@@ -110,7 +126,7 @@ import Layout from "../layouts/Layout.astro";
     }
     else
     {
-      document.querySelector("#firstLessonParagraph").innerHTML = "Nincs több tesi első órában! 🎉"
+      document.querySelector("#firstLessonParagraph").innerHTML = "Nincs több tesi az első órában! 🎉"
       document.querySelector("#firstLessons").remove();
     }
   }
