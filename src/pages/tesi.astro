@@ -21,6 +21,13 @@ import Layout from "../layouts/Layout.astro";
         checked
       />-->
     </div>
+    <div id="in-memoriam">
+      <h3 id="in-memoriam-title">In Memoriam</h3>
+      <img src="/doboz.png" id="dobozimg" alt="Törött műanyag doboz címkével az oldalán, a teteje kicsit le van csúszva és a kitört darabok mellette feküdnek">
+      <h3 id="dobozname">Telefonos doboz</h3>
+      <p class="small" id="livedate">2022.01.23 - 2023.03.24. (szolgálat)</p>
+      <p class="small">Nem élte túl az utolsó 4 hetet 😢</p>
+    </div>
   </section>
 </Layout>
 
@@ -135,6 +142,8 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+
   body {
     margin: 0;
     overflow-wrap: break-word;
@@ -162,12 +171,50 @@ import Layout from "../layouts/Layout.astro";
     text-align: center;
   }
 
+  #in-memoriam {
+    justify-content: center;
+    align-items: center;
+    background: var(--surface1);
+    max-width: 20em;
+    border-radius: 1em;
+    padding: 2em;
+    margin: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  #in-memoriam-title {
+    font-family: 'Imperial Script', cursive;
+    font-weight: normal;
+    font-size: 2em;
+  }
+
+  #dobozimg {
+    width: 10em;
+    height: 10em;
+    margin-bottom: 0.5em;
+  }
+
+  #livedate {
+    color: grey;
+    margin-bottom: 0.5em;
+  }
+
+  #dobozname {
+    margin-bottom: 0.5em;
+  }
+
   p {
     font-size: 1.2em;
   }
 
   p, h1 {
     margin: 0.7em;
+  }
+
+  h3 {
+    margin-top: 0;
   }
 
   .small {
@@ -194,6 +241,7 @@ import Layout from "../layouts/Layout.astro";
       left: unset;
       transform: unset;
       position: unset;
+      padding-bottom: 1em;
     }
   }
 </style>
