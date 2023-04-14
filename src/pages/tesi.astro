@@ -48,7 +48,7 @@ import Layout from "../layouts/Layout.astro";
     if (start > hours[(start.day() - 1 + 7) % 7]) {
       start.add(1, "day");
     }
-    var end = moment("2023-05-04");
+    var end = moment("2023-05-04 23:59");
 
     var holidays = [
       moment("2023-01-01"),
