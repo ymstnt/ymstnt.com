@@ -32,6 +32,10 @@ import Layout from "../layouts/Layout.astro";
     margin: 2em auto;
     padding: 2em;
     text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   #homebutton-container {
@@ -61,7 +65,11 @@ import Layout from "../layouts/Layout.astro";
     }
     #error-section {
       margin: 2em;
-      min-width: 15em
+      min-width: 15em;
+      position: unset;
+      left: unset;
+      top: unset;
+      transform: unset;
     }
     #homebutton-container {
       margin: 0 5em;
