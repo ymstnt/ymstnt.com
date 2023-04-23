@@ -25,6 +25,8 @@ html {
   --background: #1f1f2f;
   --surface1: #181825;
   --surface2: #11111b;
+
+  color-scheme: dark;
 }
 
 body {
