@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Érettségi 2023" description="Tesi a legrosszabb tantárgy, mennyi van még hátra?" nav="/">
+  <section id="érettségi-section">
+    <div id="intro-container">
+      <h1 id="countdown-intro">A 2023-as májusi érettségiig hátralévő idő:</h1>
+      <h1 id="countdown"></h1>
+      <h2 id="when"></h2>
+    </div>
+  </section>
+</Layout>
+
+<script src="../scripts/érettségi.ts"></script>
+
+<style>
+  body {
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+
+  #érettségi-section {
+    margin: 0 auto;
+    padding: 1em;
+    background-color: var(--surface2);
+  }
+
+  #intro-container {
+    margin: 0 auto;
+    max-width: 90em;
+  }
+
+  #countdown {
+    color: #4CBA51;
+  }
+
+  .small {
+    font-size: 0.9em;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  @media (max-width: 500px) {
+    body {
+      font-size: 1em;
+    }
+    main {
+      padding: 1.5em;
+    }
+    #érettségi-section {
+      left: unset;
+      transform: unset;
+      position: unset;
+      padding-bottom: 1em;
+    }
+    h1 {
+      line-height: 1em;
+    }
+  }
+</style>
