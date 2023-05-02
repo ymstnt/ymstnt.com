@@ -36,6 +36,8 @@ body {
   color: var(--text);
   background-color: var(--background);
   margin: auto;
+
+  --horizontal-margin: 20%;
 }
 
 a {
