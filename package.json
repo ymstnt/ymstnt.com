@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "astro": "^2.3.0",
-    "jquery": "^3.6.3",
-    "moment": "^2.29.4"
+    "jquery": "^3.6.3"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.16"
