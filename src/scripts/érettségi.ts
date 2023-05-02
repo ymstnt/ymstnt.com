@@ -47,3 +47,89 @@ function updateDays() {
   
 }
 updateDays();
+formUpdate();
+
+var buttonCheck = "";
+
+function formUpdate() {
+  console.log("Form updated");
+  var year = (<HTMLInputElement>document.querySelector('#year')).value;
+  var period = (<HTMLInputElement>document.querySelector('#period')).value;
+  var difficulty = (<HTMLInputElement>document.querySelector('#difficulty')).value;
+  var subject = (<HTMLInputElement>document.querySelector('#subject')).value;
+
+  var finalPeriod = "";
+  var periodMonth = "";
+  var finalDifficulty = "";
+  var finalSubject = "";
+
+  if (period == "may") {
+    finalPeriod = "tavasz";
+    periodMonth = "maj";
+  }
+  else
+  {
+    finalPeriod = "osz";
+    periodMonth = "okt";
+  }
+
+  if (difficulty == "medium") {
+    finalDifficulty = "kozep";
+  }
+  else
+  {
+    finalDifficulty = "emelt";
+  }
+
+  if (subject == "it-office" || subject == "it") {
+    (<HTMLInputElement>document.querySelector('#sourcefiles')).disabled = false;
+    (<HTMLInputElement>document.querySelector('#solutionfiles')).disabled = false;
+  }
+  else
+  {
+    (<HTMLInputElement>document.querySelector('#sourcefiles')).disabled = true;
+    (<HTMLInputElement>document.querySelector('#solutionfiles')).disabled = true;
+  }
+
+  switch (subject) {
+    case "hungarian":
+      finalSubject = "magyir";
+      break;
+    case "mathematics":
+      finalSubject = "mat";
+      break;
+    case "history":
+      finalSubject = "tort";
+      break;
+    case "english":
+      finalSubject = "angol";
+      break;
+    case "it":
+      finalSubject = "infoism";
+      break;
+    case "it-office":
+      finalSubject = "inf";
+      break;
+    default:
+      break;
+  }
+
+  var link = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_${year}${finalPeriod}_${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}_${year.slice(-2)}${periodMonth}_fl.pdf`;
+  (<HTMLInputElement>document.querySelector('#output')).value = link;
+}
+const dropdowns = Array.from(document.getElementsByClassName('dropdown'));
+
+dropdowns.forEach(dropdown => {
+  dropdown.addEventListener('change', function handleChange(event) {
+    formUpdate();
+  });
+});
+
+const buttons = Array.from(document.getElementsByClassName('btn'));
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', function handleClick(event) {
+    console.log('button clicked');
+    console.log(event.target);
+  });
+});
