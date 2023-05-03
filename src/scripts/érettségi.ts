@@ -140,7 +140,44 @@ function formUpdate() {
       break;
   }
 
-  generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_${year}${finalPeriod}_${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}${fileType}_${year.slice(-2)}${periodMonth}_${finalType}`;
+  var convertedYear: number = +year;
+
+  if (convertedYear == 2005 && period == "may") {
+    if (pressedButton == "sourcefiles") {
+      fileType = "forras";
+    }
+    else if (pressedButton == "solutionfiles") {
+      fileType = "megoldas";
+    }
+    else {
+      fileType = "";
+    }
+
+    generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok2005tavasz/${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}${fileType}_${finalType}`
+  }
+  else if (convertedYear > 2005 && convertedYear <= 2008) {
+    if (pressedButton == "sourcefiles") {
+      fileType = "forras";
+    }
+    else if (pressedButton == "solutionfiles") {
+      fileType = "megoldas";
+    }
+    else {
+      fileType = "";
+    }
+
+    generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok${year}${finalPeriod}/${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}${fileType}_${year.slice(-2)}${periodMonth}_${finalType}`
+  }
+  else if (convertedYear > 2008 && convertedYear <= 2012) {
+    generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok${year}${finalPeriod}/${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}${fileType}_${year.slice(-2)}${periodMonth}_${finalType}`
+  }
+  else if (convertedYear == 2012 && period == "october") {
+    generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_${year}${finalPeriod}_${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}${fileType}_${year.slice(-2)}${periodMonth}_${finalType}`;
+  }
+  else {
+    generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_${year}${finalPeriod}_${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}${fileType}_${year.slice(-2)}${periodMonth}_${finalType}`;
+  }
+  
   (<HTMLInputElement>document.querySelector('#output')).value = generatedLink;
 }
 
