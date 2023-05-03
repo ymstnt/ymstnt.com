@@ -49,7 +49,8 @@ function updateDays() {
 updateDays();
 formUpdate();
 
-var buttonCheck = "";
+var generatedLink: string;
+var pressedButton: string;
 
 function formUpdate() {
   console.log("Form updated");
@@ -62,6 +63,7 @@ function formUpdate() {
   var periodMonth = "";
   var finalDifficulty = "";
   var finalSubject = "";
+  var finalType = "";
 
   if (period == "may") {
     finalPeriod = "tavasz";
@@ -114,22 +116,41 @@ function formUpdate() {
       break;
   }
 
-  var link = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_${year}${finalPeriod}_${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}_${year.slice(-2)}${periodMonth}_fl.pdf`;
-  (<HTMLInputElement>document.querySelector('#output')).value = link;
+  switch (pressedButton) {
+    case "task":
+      finalType = "fl.pdf";
+      break;
+    case "sourcefiles":
+      finalType = "fl.zip";
+      break;
+    case "solution":
+      finalType = "ut.pdf";
+      break;
+    case "solutionfiles":
+      finalType = "ut.zip";
+      break;
+    default:
+      finalType = "fl.pdf";
+      break;
+  }
+
+  generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_${year}${finalPeriod}_${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}_${year.slice(-2)}${periodMonth}_${finalType}`;
+  (<HTMLInputElement>document.querySelector('#output')).value = generatedLink;
 }
+
 const dropdowns = Array.from(document.getElementsByClassName('dropdown'));
 
 dropdowns.forEach(dropdown => {
-  dropdown.addEventListener('change', function handleChange(event) {
-    formUpdate();
-  });
+  dropdown.addEventListener('change', formUpdate);
 });
 
 const buttons = Array.from(document.getElementsByClassName('btn'));
 
 buttons.forEach(btn => {
-  btn.addEventListener('click', function handleClick(event) {
-    console.log('button clicked');
-    console.log(event.target);
+  btn.addEventListener('click', (e) => {
+    let element = e.target;
+    pressedButton = (<HTMLInputElement>element).id;
+    formUpdate();
+    window.open(generatedLink, '_blank');
   });
 });
