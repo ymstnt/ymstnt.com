@@ -59,11 +59,12 @@ function formUpdate() {
   var difficulty = (<HTMLInputElement>document.querySelector('#difficulty')).value;
   var subject = (<HTMLInputElement>document.querySelector('#subject')).value;
 
-  var finalPeriod = "";
-  var periodMonth = "";
-  var finalDifficulty = "";
-  var finalSubject = "";
-  var finalType = "";
+  var finalPeriod: string;
+  var periodMonth: string;
+  var finalDifficulty: string;
+  var finalSubject: string;
+  var finalType: string;
+  var fileType: string;
 
   if (period == "may") {
     finalPeriod = "tavasz";
@@ -119,22 +120,27 @@ function formUpdate() {
   switch (pressedButton) {
     case "task":
       finalType = "fl.pdf";
+      fileType = "";
       break;
     case "sourcefiles":
       finalType = "fl.zip";
+      fileType = "for";
       break;
     case "solution":
       finalType = "ut.pdf";
+      fileType = "";
       break;
     case "solutionfiles":
       finalType = "ut.zip";
+      fileType = "meg";
       break;
     default:
       finalType = "fl.pdf";
+      fileType = "";
       break;
   }
 
-  generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_${year}${finalPeriod}_${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}_${year.slice(-2)}${periodMonth}_${finalType}`;
+  generatedLink = `https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok_${year}${finalPeriod}_${finalDifficulty}/${finalDifficulty.charAt(0)}_${finalSubject}${fileType}_${year.slice(-2)}${periodMonth}_${finalType}`;
   (<HTMLInputElement>document.querySelector('#output')).value = generatedLink;
 }
 
