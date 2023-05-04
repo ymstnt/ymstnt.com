@@ -75,18 +75,17 @@ function formUpdate() {
   console.log("Form updated");
   let year = (<HTMLInputElement>document.querySelector("#year")).value;
   let period = (<HTMLInputElement>document.querySelector("#period")).value;
-  let difficulty = (<HTMLInputElement>document.querySelector("#difficulty"))
+  let generatedDifficulty = (<HTMLInputElement>document.querySelector("#difficulty"))
     .value;
   let subject = (<HTMLInputElement>document.querySelector("#subject")).value;
 
   let generatedPeriod: string;
   let periodMonth: string;
-  let generatedDifficulty: string;
-  let generatedSubjects: string;
+  let generatedSubject: string;
   let generatedFileType: string;
   let itFileType: string;
 
-  if (period == "may") {
+  if (period == "majus") {
     generatedPeriod = "tavasz";
     periodMonth = "maj";
   } else {
@@ -94,13 +93,7 @@ function formUpdate() {
     periodMonth = "okt";
   }
 
-  if (difficulty == "medium") {
-    generatedDifficulty = "kozep";
-  } else {
-    generatedDifficulty = "emelt";
-  }
-
-  if (subject == "it-office" || subject == "it") {
+  if (subject == "inf" || subject == "infoism") {
     (<HTMLInputElement>document.querySelector("#sourcefiles")).disabled = false;
     (<HTMLInputElement>document.querySelector("#solutionfiles")).disabled =
       false;
@@ -112,31 +105,11 @@ function formUpdate() {
 
   let convertedYear: number = parseInt(year);
 
-  switch (subject) {
-    case "hungarian":
-      generatedSubjects = "magyir";
-      break;
-    case "mathematics":
-      generatedSubjects = "mat";
-      break;
-    case "history":
-      generatedSubjects = "tort";
-      break;
-    case "english":
-      generatedSubjects = "angol";
-      break;
-    case "it":
-      generatedSubjects = "infoism";
-      break;
-    case "it-office":
-      if (convertedYear <= 2011 && !(convertedYear == 2011 && period == "october")) {
-        generatedSubjects = "info";
-      } else {
-        generatedSubjects = "inf";
-      }
-      break;
-    default:
-      break;
+  if (subject == "inf" && convertedYear <= 2011 && !(convertedYear == 2011 && period == "oktober")) {
+    generatedSubject = "info";
+  }
+  else {
+    generatedSubject = subject;
   }
 
   let linkPrefix: string = "https://www.oktatas.hu/bin/content/dload/erettsegi/feladatok";
@@ -181,14 +154,14 @@ function formUpdate() {
 
   let assembledPart: string;
 
-  if (convertedYear == 2005 && period == "may") {
-    assembledPart = `${year}${generatedPeriod}/${generatedDifficulty}/${firstCharDifficulty}_${generatedSubjects}${itFileType}_${generatedFileType}`;
+  if (convertedYear == 2005 && period == "majus") {
+    assembledPart = `${year}${generatedPeriod}/${generatedDifficulty}/${firstCharDifficulty}_${generatedSubject}${itFileType}_${generatedFileType}`;
   }
-  else if (convertedYear >= 2005 && convertedYear <= 2012 && !(convertedYear == 2005 && period == "may") && !(convertedYear == 2012 && period == "october")) {
-    assembledPart = `${year}${generatedPeriod}/${generatedDifficulty}/${firstCharDifficulty}_${generatedSubjects}${itFileType}_${cutYear}${periodMonth}_${generatedFileType}`;
+  else if (convertedYear >= 2005 && convertedYear <= 2012 && !(convertedYear == 2005 && period == "majus") && !(convertedYear == 2012 && period == "oktober")) {
+    assembledPart = `${year}${generatedPeriod}/${generatedDifficulty}/${firstCharDifficulty}_${generatedSubject}${itFileType}_${cutYear}${periodMonth}_${generatedFileType}`;
   }
   else {
-    assembledPart = `${year}${generatedPeriod}_${generatedDifficulty}/${firstCharDifficulty}_${generatedSubjects}${itFileType}_${cutYear}${periodMonth}_${generatedFileType}`;
+    assembledPart = `${year}${generatedPeriod}_${generatedDifficulty}/${firstCharDifficulty}_${generatedSubject}${itFileType}_${cutYear}${periodMonth}_${generatedFileType}`;
   }
 
   generatedLink = linkPrefix + assembledPart;
