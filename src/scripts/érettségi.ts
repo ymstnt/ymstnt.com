@@ -10,12 +10,13 @@ class DaySubject {
   }
 }
 
+//Days counter
 function updateDays() {
   const currentDate: Date = new Date();
-  const targetDate: Date = new Date("2023-05-08");
-  const finalDate: Date = new Date("2023-07-01");
+  const finalExamStartDate: Date = new Date("2023-05-08");
+  const endDate: Date = new Date("2023-07-01");
 
-  const timeDiff: number = targetDate.getTime() - currentDate.getTime();
+  const timeDiff: number = finalExamStartDate.getTime() - currentDate.getTime();
   const daysLeft: number = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
   let exams: DaySubject[] = [
@@ -25,28 +26,42 @@ function updateDays() {
       "középszintű"
     ),
     new DaySubject(new Date("2023-05-09 09:00"), "Matematika", "középszintű"),
-    new DaySubject(new Date("2023-05-10 09:00"), "Történelem", "középszintű"),
+    new DaySubject(new Date("2023-05-10 09:00"), "Történelem", "közép- és emelt szintű"),
     new DaySubject(new Date("2023-05-11 09:00"), "Angol nyelv", "középszintű"),
     new DaySubject(new Date("2023-05-11 08:00"), "Informatika", "középszintű"),
-    new DaySubject(
-      new Date("2023-05-17 09:00"),
-      "Informatika ismeretek",
-      "középszintű és emelt"
-    ),
-    new DaySubject(new Date("2023-05-22 08:00"), "Informatika", "emelt"),
+    new DaySubject(new Date("2023-05-17 09:00"),"Informatika ismeretek","közép- és emelt szintű"),
+    new DaySubject(new Date("2023-05-22 08:00"), "Informatika", "emelt szintű"),
   ];
 
-  if (currentDate < targetDate) {
+  if (currentDate < finalExamStartDate) {
     document.querySelector("#countdown").textContent =
       daysLeft.toString() + " nap";
-  } else if (currentDate >= finalDate) {
+  } else if (currentDate >= endDate) {
     document.querySelector("#countdown-intro").textContent =
-      "Vége az érettségi időszaknak.";
-  } else {
+      "Vége az érettségi időszaknak 🎉🎉🎉";
+  } else if (currentDate.getHours() <= 16) {
     exams.forEach((element) => {
       if (element.dateTime.getDate() == currentDate.getDate()) {
         document.querySelector("#countdown-intro").textContent =
           "A mai érettségi vizsga:";
+        document.querySelector("#countdown").textContent =
+          element.subject + " (" + element.type + ")";
+        document.querySelector("#when").textContent =
+          "Kezdés: " +
+          element.dateTime.toLocaleTimeString("hu-HU", {
+            hour: "2-digit",
+            minute: "2-digit",
+          }) +
+          "-kor";
+      } else {
+        document.querySelector("#countdown-intro").textContent = "Pihenőnap 🌙";
+      }
+    });
+  } else {
+    exams.forEach((element) => {
+      if (element.dateTime.getDate() == currentDate.getDate() + 1) {
+        document.querySelector("#countdown-intro").textContent =
+          "Holnapi érettségi vizsga:";
         document.querySelector("#countdown").textContent =
           element.subject + " (" + element.type + ")";
         document.querySelector("#when").textContent =
@@ -69,8 +84,7 @@ let pressedButton: string;
 updateDays();
 formUpdate();
 
-
-
+//Érettségi link generator
 function formUpdate() {
   console.log("Form updated");
   let year = (<HTMLInputElement>document.querySelector("#year")).value;
@@ -104,6 +118,19 @@ function formUpdate() {
   }
 
   let convertedYear: number = parseInt(year);
+
+  //Hide ágazati informatika if below 2017 using .hidden class
+  if (convertedYear < 2017 && subject == "infoism") {
+    //Select another subject if ágazati informatika is selected and below 2017
+    (<HTMLInputElement>document.querySelector("#subject")).value = "inf";
+    (<HTMLInputElement>document.querySelector("#infoism")).classList.add("hidden");
+    generatedSubject = "inf";
+  } else if (convertedYear < 2017) {
+    (<HTMLInputElement>document.querySelector("#infoism")).classList.add("hidden");
+  
+  } else {
+    (<HTMLInputElement>document.querySelector("#infoism")).classList.remove("hidden");
+  }
 
   if (subject == "inf" && convertedYear <= 2011 && !(convertedYear == 2011 && period == "oktober")) {
     generatedSubject = "info";
@@ -169,6 +196,7 @@ function formUpdate() {
   (<HTMLInputElement>document.querySelector("#output")).value = generatedLink;
 }
 
+//Form elements event listeners
 const dropdowns = Array.from(document.getElementsByClassName("dropdown"));
 
 dropdowns.forEach((dropdown) => {

@@ -50,7 +50,7 @@ import Layout from "../layouts/Layout.astro";
           <option value="tort">Történelem</option>
           <option value="angol">Angol nyelv</option>
           <option value="inf">Informatika (közismereti)</option>
-          <option value="infoism">Informatikai ismeretek (ágazati)</option>
+          <option value="infoism" id="infoism">Informatikai ismeretek (ágazati)</option>
         </select>
         <br>
         <input type="url" name="output" id="output" disabled>
@@ -100,6 +100,10 @@ import Layout from "../layouts/Layout.astro";
   #output {
     margin-top: 1em;
     width: 100%;
+  }
+
+  .hidden {
+    display: none;
   }
 
   @media (max-width: 1506px) {
