@@ -4,13 +4,17 @@ import Layout from "../layouts/Layout.astro";
 <script src="../scripts/érettségi.ts"></script>
 
 <Layout title="Érettségi 2023" description="Hasznos dolgok az érettségihez" nav="/">
-  <section id="érettségi-section">
-    <div id="intro-container">
+  <section id="intro">
+    <div id="intro-container" class="container">
       <h1 id="countdown-intro">A 2023-as májusi érettségiig hátralévő idő:</h1>
       <h1 id="countdown"></h1>
       <h2 id="when"></h2>
     </div>
-    <div id="generator-container">
+  </section>
+  <section id="generator">
+    <div id="generator-container" class="container">
+      <h1>Érettségi link generátor</h1>
+      <hr>
       <form action="">
         <label for="year">Év:</label>
         <select name="year" class="dropdown" id="year">
@@ -70,22 +74,29 @@ import Layout from "../layouts/Layout.astro";
     overflow-wrap: break-word;
   }
 
-  #érettségi-section {
+  section {
     margin: 0 auto;
     padding: 1em;
+  }
+
+  #intro {
     background-color: var(--surface2);
   }
 
-  #intro-container, #generator-container {
+  #generator {
+    background-color: var(--surface1);
+  }
+
+  .container {
     margin: 0 var(--horizontal-margin);
   }
-
-  #generator-container {
-    margin-top: 1em;
-  }
-
+  
   #countdown {
     color: #4CBA51;
+  }
+
+  #generator-container > h1 {
+    margin-bottom: 0;
   }
 
   .small {
@@ -106,21 +117,37 @@ import Layout from "../layouts/Layout.astro";
     display: none;
   }
 
+  form {
+    margin: 1em auto;
+  }
+
   @media (max-width: 1506px) {
     body {
       font-size: 1em;
     }
+    
     main {
       padding: 1.5em;
     }
+
+    .container {
+      margin: 0 1em;
+    }
+
     #érettségi-section {
-      left: unset;
-      transform: unset;
-      position: unset;
       padding-bottom: 1em;
     }
-    h1 {
-      line-height: 1em;
+    
+    #countdown-intro {
+      font-size: 1.5em;
+    }
+
+    #countdown {
+      font-size: 1.5em;
+    }
+
+    #generator-container > h1 {
+      font-size: 1.5em;
     }
   }
 </style>
