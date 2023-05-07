@@ -124,10 +124,10 @@ function formUpdate() {
     //Select another subject if ágazati informatika is selected and below 2017
     (<HTMLInputElement>document.querySelector("#subject")).value = "inf";
     (<HTMLInputElement>document.querySelector("#infoism")).classList.add("hidden");
+    subject = "inf";
     generatedSubject = "inf";
   } else if (convertedYear < 2017) {
     (<HTMLInputElement>document.querySelector("#infoism")).classList.add("hidden");
-  
   } else {
     (<HTMLInputElement>document.querySelector("#infoism")).classList.remove("hidden");
   }
