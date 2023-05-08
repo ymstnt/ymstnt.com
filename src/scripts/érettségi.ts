@@ -28,7 +28,7 @@ function updateDays() {
     new DaySubject(new Date("2023-05-09 09:00"), "Matematika", "középszintű"),
     new DaySubject(new Date("2023-05-10 09:00"), "Történelem", "közép- és emelt szintű"),
     new DaySubject(new Date("2023-05-11 09:00"), "Angol nyelv", "középszintű"),
-    new DaySubject(new Date("2023-05-11 08:00"), "Informatika", "középszintű"),
+    new DaySubject(new Date("2023-05-15 08:00"), "Informatika", "középszintű"),
     new DaySubject(new Date("2023-05-17 09:00"),"Informatika ismeretek","közép- és emelt szintű"),
     new DaySubject(new Date("2023-05-22 08:00"), "Informatika", "emelt szintű"),
   ];
