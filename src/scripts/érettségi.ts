@@ -40,8 +40,10 @@ function updateDays() {
     document.querySelector("#countdown-intro").textContent =
       "Vége az érettségi időszaknak 🎉🎉🎉";
   } else if (currentDate.getHours() <= 16) {
+    let foundExam: boolean = false;
     exams.forEach((element) => {
       if (element.dateTime.getDate() == currentDate.getDate()) {
+        foundExam = true;
         document.querySelector("#countdown-intro").textContent =
           "A mai érettségi vizsga:";
         document.querySelector("#countdown").textContent =
@@ -53,13 +55,16 @@ function updateDays() {
             minute: "2-digit",
           }) +
           "-kor";
-      } else {
-        document.querySelector("#countdown-intro").textContent = "Pihenőnap 🌙";
       }
     });
+    if (!foundExam) {
+      document.querySelector("#countdown-intro").textContent = "Pihenőnap 🌙";
+    }
   } else {
+    let foundExam: boolean = false;
     exams.forEach((element) => {
       if (element.dateTime.getDate() == currentDate.getDate() + 1) {
+        foundExam = true;
         document.querySelector("#countdown-intro").textContent =
           "Holnapi érettségi vizsga:";
         document.querySelector("#countdown").textContent =
@@ -71,10 +76,11 @@ function updateDays() {
             minute: "2-digit",
           }) +
           "-kor";
-      } else {
-        document.querySelector("#countdown-intro").textContent = "Pihenőnap 🌙";
       }
     });
+    if (!foundExam) {
+      document.querySelector("#countdown-intro").textContent = "Pihenőnap 🌙";
+    }
   }
 }
 
