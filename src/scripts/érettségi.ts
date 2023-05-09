@@ -125,6 +125,19 @@ function formUpdate() {
 
   let convertedYear: number = parseInt(year);
 
+  //Hide október-november if 2023 is selected using .hidden class
+  if (convertedYear == 2023 && period == "oktober") {
+    (<HTMLInputElement>document.querySelector("#oktober")).classList.add("hidden");
+    //Select május if október-november is selected and 2023
+    (<HTMLInputElement>document.querySelector("#period")).value = "majus";
+    period = "majus";
+    generatedPeriod = "tavasz";
+  } else if (convertedYear == 2023) {
+    (<HTMLInputElement>document.querySelector("#oktober")).classList.add("hidden");
+  } else {
+    (<HTMLInputElement>document.querySelector("#oktober")).classList.remove("hidden");
+  }
+
   //Hide ágazati informatika if below 2017 using .hidden class
   if (convertedYear < 2017 && subject == "infoism") {
     //Select another subject if ágazati informatika is selected and below 2017
