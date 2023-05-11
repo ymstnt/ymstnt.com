@@ -39,7 +39,7 @@ function updateDays() {
   } else if (currentDate >= endDate) {
     document.querySelector("#countdown-intro").textContent =
       "Vége az érettségi időszaknak 🎉🎉🎉";
-  } else if (currentDate.getHours() <= 16) {
+  } else if (currentDate.getHours() <= 14) {
     let foundExam: boolean = false;
     exams.forEach((element) => {
       if (element.dateTime.getDate() == currentDate.getDate()) {
