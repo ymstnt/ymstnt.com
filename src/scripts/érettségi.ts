@@ -10,6 +10,14 @@ class DaySubject {
   }
 }
 
+function isSameDay(date1: Date, date2: Date) {
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  );
+}
+
 //Days counter
 function updateDays() {
   const currentDate: Date = new Date();
@@ -42,7 +50,7 @@ function updateDays() {
   } else if (currentDate.getHours() <= 14) {
     let foundExam: boolean = false;
     exams.forEach((element) => {
-      if (element.dateTime.getDate() == currentDate.getDate()) {
+      if (isSameDay(element.dateTime, currentDate)) {
         foundExam = true;
         document.querySelector("#countdown-intro").textContent =
           "A mai érettségi vizsga:";
@@ -63,7 +71,7 @@ function updateDays() {
   } else {
     let foundExam: boolean = false;
     exams.forEach((element) => {
-      if (element.dateTime.getDate() == currentDate.getDate() + 1) {
+      if (isSameDay(element.dateTime, currentDate)) {
         foundExam = true;
         document.querySelector("#countdown-intro").textContent =
           "Holnapi érettségi vizsga:";
