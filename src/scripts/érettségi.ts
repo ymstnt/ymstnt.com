@@ -3,11 +3,19 @@ class DaySubject {
   subject: string;
   type: string;
 
-  constructor(dateTime, subject, type) {
+  constructor(dateTime: Date, subject: string, type: string) {
     this.dateTime = dateTime;
     this.subject = subject;
     this.type = type;
   }
+}
+
+function isSameDay(date1: Date, date2: Date) {
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  );
 }
 
 //Days counter
@@ -29,7 +37,7 @@ function updateDays() {
     new DaySubject(new Date("2023-05-10 09:00"), "Történelem", "közép- és emelt szintű"),
     new DaySubject(new Date("2023-05-11 09:00"), "Angol nyelv", "közép- és emelt szintű"),
     new DaySubject(new Date("2023-05-15 08:00"), "Informatika", "középszintű"),
-    new DaySubject(new Date("2023-05-17 09:00"),"Informatika ismeretek","közép- és emelt szintű"),
+    new DaySubject(new Date("2023-05-17 09:00"), "Informatika ismeretek", "közép- és emelt szintű"),
     new DaySubject(new Date("2023-05-22 08:00"), "Informatika", "emelt szintű"),
   ];
 
@@ -42,7 +50,7 @@ function updateDays() {
   } else if (currentDate.getHours() <= 14) {
     let foundExam: boolean = false;
     exams.forEach((element) => {
-      if (element.dateTime.getDate() == currentDate.getDate()) {
+      if (isSameDay(element.dateTime, currentDate)) {
         foundExam = true;
         document.querySelector("#countdown-intro").textContent =
           "A mai érettségi vizsga:";
@@ -63,7 +71,7 @@ function updateDays() {
   } else {
     let foundExam: boolean = false;
     exams.forEach((element) => {
-      if (element.dateTime.getDate() == currentDate.getDate() + 1) {
+      if (isSameDay(element.dateTime, currentDate)) {
         foundExam = true;
         document.querySelector("#countdown-intro").textContent =
           "Holnapi érettségi vizsga:";
