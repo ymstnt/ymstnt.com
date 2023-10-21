@@ -12,9 +12,10 @@ export interface Props {
 }
 
 const { title, description, nav } = Astro.props;
+import { ViewTransitions } from "astro:transitions";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hu">
   <head>
     <meta charset="utf-8" />
@@ -30,27 +31,26 @@ const { title, description, nav } = Astro.props;
     <meta name="og:image" content={ICON} />
 
     <link rel="icon" href="/favicon.ico" />
+    <ViewTransitions />
   </head>
   <body>
     <header>
-      <Navbar title="TNT's Blog" nav="/blog"/>
+      <Navbar title="TNT's Blog" nav="/blog" />
     </header>
     <article id="blog-body">
       <slot />
     </article>
-  </body>
-</html>
-
-<style>
-  article {
-    margin: 0 auto;
-    max-width: 900px;
-    /* padding: 0 1rem; */
-  }
-
-  @media (max-width: 500px) {
+  </body><style>
     article {
-      padding: 0 1rem;
+      margin: 0 auto;
+      max-width: 900px;
+      /* padding: 0 1rem; */
     }
-  }
-</style>
+
+    @media (max-width: 500px) {
+      article {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</html>

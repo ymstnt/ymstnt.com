@@ -1,9 +1,8 @@
 ---
-const { title, nav } = Astro.props;
+const { nav } = Astro.props;
 ---
 
 <nav>
-  <h2><a href={nav} id="title">{title}</a></h2>
   <div id="buttons">
     <ul>
       <li>
@@ -21,17 +20,17 @@ const { title, nav } = Astro.props;
 
 <style>
   nav {
-    background-color: #181820;
+    background-color: var(--accent);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     max-height: 70px;
+    padding: 0.3em;
   }
 
   h2 {
     cursor: pointer;
-    padding: 0.4em;
   }
 
   #buttons {
@@ -55,13 +54,12 @@ const { title, nav } = Astro.props;
     text-decoration: none;
     text-align: center;
     padding: 0.5em;
-    color: white;
     transition: 0.15s ease;
     transition-property: color, text-decoration;
   }
 
   a:hover {
-    color: gray;
+    color: var(--ctp-mocha-blue);
     text-decoration: underline;
   }
 
@@ -72,9 +70,9 @@ const { title, nav } = Astro.props;
 
   @media only screen and (max-width: 600px) {
     nav {
-        position: relative;
-        flex-direction: column;
-        max-height: 200px;
+      position: relative;
+      flex-direction: column;
+      max-height: 200px;
     }
   }
 </style>

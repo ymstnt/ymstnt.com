@@ -12,15 +12,16 @@ export interface Props {
 }
 
 const { title, description, nav } = Astro.props;
+import { ViewTransitions } from "astro:transitions";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hu">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="darkreader-lock">
+    <meta name="darkreader-lock" />
     <meta name="description" content={description} />
     <meta name="author" content={AUTHOR} />
     <meta name="theme-color" content={THEME_COLOR} />
@@ -29,12 +30,13 @@ const { title, description, nav } = Astro.props;
     <meta name="og:title" content={title} />
     <meta name="og:description" content={description} />
     <meta name="og:image" content={ICON} />
-    
+
     <link rel="icon" href="/favicon.ico" />
+    <ViewTransitions />
   </head>
   <body>
     <header>
-      <Navbar title={title} nav={nav}/>
+      <Navbar title={title} nav={nav} />
     </header>
     <main>
       <slot />

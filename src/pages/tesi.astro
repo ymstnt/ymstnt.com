@@ -6,7 +6,11 @@ import Layout from "../layouts/Layout.astro";
   is:inline
   src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
 ></script>
-<Layout title="YMSTNT | Tesi" description="Tesi a legrosszabb tantárgy, mennyi van még hátra?" nav="/">
+<Layout
+  title="YMSTNT | Tesi"
+  description="Tesi a legrosszabb tantárgy, mennyi van még hátra?"
+  nav="/"
+>
   <section id="tesi-section">
     <div id="tesi">
       <p>Nincs több tesi óra!</p>
@@ -14,7 +18,11 @@ import Layout from "../layouts/Layout.astro";
     </div>
     <div id="in-memoriam">
       <h3 id="in-memoriam-title">In Memoriam</h3>
-      <img src="/doboz.png" id="dobozimg" alt="Törött műanyag doboz címkével az oldalán, a teteje kicsit le van csúszva és a kitört darabok mellette feküdnek">
+      <img
+        src="/doboz.png"
+        id="dobozimg"
+        alt="Törött műanyag doboz címkével az oldalán, a teteje kicsit le van csúszva és a kitört darabok mellette feküdnek"
+      />
       <h3 id="dobozname">Telefonos doboz</h3>
       <p class="small" id="livedate">2022.01.24 - 2023.03.24.</p>
       <p class="small">Nem élte túl az utolsó 4 hetet 😢</p>
@@ -23,7 +31,13 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+  @font-face {
+    font-family: 'Imperial Script';
+    src: url('/fonts/ImperialScript-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
   body {
     margin: 0;
@@ -42,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
   #tesi {
     justify-content: center;
     align-items: center;
-    background: #181825;
+    background: var(--accent);
     max-width: 20em;
     border-radius: 1em;
     padding: 2em;
@@ -55,7 +69,7 @@ import Layout from "../layouts/Layout.astro";
   #in-memoriam {
     justify-content: center;
     align-items: center;
-    background: var(--surface1);
+    background: var(--accent);
     max-width: 20em;
     border-radius: 1em;
     padding: 2em;
@@ -66,7 +80,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   #in-memoriam-title {
-    font-family: 'Imperial Script', cursive;
+    font-family: "Imperial Script", cursive;
     font-weight: normal;
     font-size: 2em;
   }
@@ -78,7 +92,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   #livedate {
-    color: grey;
+    color: var(--overlay);
     margin-bottom: 0.5em;
   }
 
@@ -90,7 +104,8 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1.2em;
   }
 
-  p, h1 {
+  p,
+  h1 {
     margin: 0.7em;
   }
 

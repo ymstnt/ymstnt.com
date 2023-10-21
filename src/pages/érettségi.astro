@@ -1,9 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
+
 <script src="../scripts/érettségi.ts"></script>
 
-<Layout title="Érettségi 2023" description="Hasznos dolgok az érettségihez" nav="/">
+<Layout
+  title="Érettségi 2023"
+  description="Hasznos dolgok az érettségihez"
+  nav="/"
+>
   <section id="intro">
     <div id="intro-container" class="container">
       <h1 id="countdown-intro">A 2023-as májusi érettségiig hátralévő idő:</h1>
@@ -14,7 +19,7 @@ import Layout from "../layouts/Layout.astro";
   <section id="generator">
     <div id="generator-container" class="container">
       <h1>Érettségi link generátor</h1>
-      <hr>
+      <hr />
       <form action="">
         <label for="year">Év:</label>
         <select name="year" class="dropdown" id="year">
@@ -55,22 +60,33 @@ import Layout from "../layouts/Layout.astro";
           <option value="tort">Történelem</option>
           <option value="angol">Angol nyelv</option>
           <option value="inf">Informatika (közismereti)</option>
-          <option value="infoism" id="infoism">Informatikai ismeretek (ágazati)</option>
+          <option value="infoism" id="infoism"
+            >Informatikai ismeretek (ágazati)</option
+          >
         </select>
-        <br>
-        <input type="url" name="output" id="output" disabled>
-        <br>
-        <input type="button" value="Feladatlap" class="btn" id="task">
-        <input type="button" value="Forrásfájlok" class="btn" id="sourcefiles">
-        <input type="button" value="Javítókulcs" class="btn" id="solution">
-        <input type="button" value="Megoldás fájlok" class="btn" id="solutionfiles">
+        <br />
+        <input type="url" name="output" id="output" disabled />
+        <br />
+        <input type="button" value="Feladatlap" class="btn" id="task" />
+        <input
+          type="button"
+          value="Forrásfájlok"
+          class="btn"
+          id="sourcefiles"
+        />
+        <input type="button" value="Javítókulcs" class="btn" id="solution" />
+        <input
+          type="button"
+          value="Megoldás fájlok"
+          class="btn"
+          id="solutionfiles"
+        />
       </form>
     </div>
   </section>
 </Layout>
 
 <style>
-
   body {
     overflow-wrap: break-word;
   }
@@ -81,19 +97,19 @@ import Layout from "../layouts/Layout.astro";
   }
 
   #intro {
-    background-color: var(--surface2);
+    background-color: var(--accent-darker);
   }
 
   #generator {
-    background-color: var(--surface1);
+    background-color: var(--accent);
   }
 
   .container {
     margin: 0 var(--horizontal-margin);
   }
-  
+
   #countdown {
-    color: #4CBA51;
+    color: #4cba51;
   }
 
   #generator-container > h1 {
@@ -126,7 +142,7 @@ import Layout from "../layouts/Layout.astro";
     body {
       font-size: 1em;
     }
-    
+
     main {
       padding: 1.5em;
     }
@@ -138,7 +154,7 @@ import Layout from "../layouts/Layout.astro";
     #érettségi-section {
       padding-bottom: 1em;
     }
-    
+
     #countdown-intro {
       font-size: 1.5em;
     }
