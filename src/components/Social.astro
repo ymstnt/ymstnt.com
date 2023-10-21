@@ -1,0 +1,21 @@
+---
+interface CustomSocialProps {
+  children: any;
+}
+
+interface SocialProps {
+  href: string;
+  title: string;
+  id?: string;
+}
+
+export type Props = SocialProps | CustomSocialProps;
+
+const { href, id } = Astro.props as SocialProps & CustomSocialProps;
+---
+
+<a href={href} rel="me" target="_blank">
+  <slot>
+    <slot name="icon" />
+  </slot>
+</a>

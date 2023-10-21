@@ -1,0 +1,38 @@
+---
+import GitHub from "./Icons/GitHub.astro";
+import Mastodon from "./Icons/Mastodon.astro";
+import Codeberg from "./Icons/Codeberg.astro";
+import Gitlab from "./Icons/Gitlab.astro";
+import Steam from "./Icons/Steam.astro";
+
+import Social from "./Social.astro";
+---
+
+<div>
+  <Social title="Github" href="https://github.com/YMSTNT">
+    <GitHub slot="icon" />
+  </Social>
+  <Social title="Mastodon" href="https://mstdn.social/@ymstnt">
+    <Mastodon slot="icon" />
+  </Social>
+  <Social title="Codeberg" href="https://codeberg.org/YMSTNT">
+    <Codeberg slot="icon" />
+  </Social>
+  <Social title="Gitlab" href="https://gitlab.com/ymstnt">
+    <Gitlab slot="icon" />
+  </Social>
+  <Social title="Steam" href="https://steamcommunity.com/id/ymstnt">
+    <Steam slot="icon" />
+  </Social>
+</div>
+
+<style>
+  div {
+    display: flex;
+    padding: 0 1em;
+    flex-direction: row;
+    gap: 0.2rem;
+    justify-content: center;
+    margin: 1em;
+  }
+</style>
