@@ -7,12 +7,6 @@
   src: url("/fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
 }
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
-}
-
 html {
   overflow-y: overlay;
   height: -webkit-fill-available;
@@ -20,32 +14,79 @@ html {
   height: fill-available;
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
 :root {
-  --text: #F7F7F7;
-  --text-muted: #C3C3C3;
-
-  /* --background: #1e1e2e; */
-  --background: #1f1f2f;
-  --surface1: #181825;
-  --surface2: #11111b;
-
   color-scheme: dark;
 }
 
 body {
-  font-family: "Inter var", system-ui, sans-serif;
-  line-height: 26px;
-  letter-spacing: 0.1px;
-  color: var(--text);
-  background-color: var(--background);
-  margin: auto;
+  --background-color: #1e1e2e;
+  --accent: #181825;
+  --accent-darker: #11111b;
+
+  --surface: #313244;
+  --surface1: #45475a;
+  --surface2: #585b70;
+
+  --overlay: #6c7086;
+  --overlay1: #7f849c;
+  --overlay2: #9399b2;
+
+  --text: #cdd6f4;
+  --subtext: #a6adc8;
+  --subtext1: #bac2de;
+
+  --blue: #89b4fa;
+
+  --success: #a6e3a1;
+  --warning: #a6e3a1;
+  --error: #f38ba8;
+  --selection: rgba(88, 91, 112, 60%);
+
+  --cursor: #f5e0dc;
 
   --horizontal-margin: 20%;
+
+  background-color: var(--background-color);
+  color: var(--text);
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+  min-height: fill-available;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+html {
+  font-family: "Inter var", system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  margin: auto;
+
+
+}
+
+p {
+  line-height: 1.75em;
+  letter-spacing: 0.1px;
+  margin: 1rem 0;
 }
 
 a {
   text-decoration: none;
   padding-bottom: 0.1em;
+  color: var(--blue);
 }
 
 a:link,
@@ -53,8 +94,12 @@ a:visited {
   color: var(--text);
 }
 
+::selection {
+  background-color: var(--selection);
+}
+
 @media screen and (max-width: 800px) {
   body {
-      --horizontal-margin: 5%;
+    --horizontal-margin: 5%;
   }
 }

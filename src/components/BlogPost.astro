@@ -23,16 +23,10 @@ const formattedPublishDate = new Date(date).toLocaleDateString(
   </a>
   <div class="footer">
     <span class="date">{formattedPublishDate}</span>
-    <br>
+    <br />
     <span class="tags">
-      {
-        tags.map((tag) => (
-          <tag>
-            {tag}
-          </tag>
-        ))
-      }
-      </span>
+      {tags.map((tag) => <tag>{tag}</tag>)}
+    </span>
   </div>
 </div>
 
@@ -43,9 +37,9 @@ const formattedPublishDate = new Date(date).toLocaleDateString(
 
   #card {
     display: block;
-    background: var(--surface1);
+    background: var(--accent);
     max-width: 30em;
-    border: var(--surface1) 1px solid;
+    border: var(--accent-darker) 1px solid;
     border-radius: 1em;
     margin: 2em auto;
     padding: 1.5em;
@@ -55,7 +49,7 @@ const formattedPublishDate = new Date(date).toLocaleDateString(
 
   #card:hover,
   #card:active {
-    border: lightblue 1px solid;
+    border: var(--blue) 1px solid;
   }
 
   #ref {
@@ -74,9 +68,9 @@ const formattedPublishDate = new Date(date).toLocaleDateString(
     margin-bottom: 0.5rem;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
-    background-color: var(--surface2);
-    border: var(--surface2) 1px solid;
-    color: var(--text-muted);
+    background-color: var(--accent-darker);
+    color: var(--subtext);
+    line-height: 1.7em;
   }
 
   .footer {
@@ -84,6 +78,6 @@ const formattedPublishDate = new Date(date).toLocaleDateString(
   }
 
   .date {
-    color: #666;
+    color: var(--overlay);
   }
 </style>
