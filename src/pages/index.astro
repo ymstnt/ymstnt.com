@@ -49,7 +49,8 @@ import Layout from "../layouts/Layout.astro";
             <path
               d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
             ></path>
-          </svg></a>
+          </svg>
+        </a>
         <a
           href="https://mstdn.social/@ymstnt"
           target="_blank"
@@ -159,7 +160,7 @@ import Layout from "../layouts/Layout.astro";
           >
         </p>
         <p>
-          I'm a high school student passionate about software development and
+          I'm a university student passionate about software development and
           computer science. In my free time, I enjoy tinkering with technology
           (mainly Linux and servers), playing casual games, and caring for my
           aquarium.
@@ -171,14 +172,6 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
   body {
-    background: linear-gradient(
-      38deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 51, 143, 1) 55%,
-      rgba(0, 123, 191, 1) 100%
-    );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     overflow-wrap: break-word;
     margin: 0;
     font-size: 1em;
@@ -218,19 +211,9 @@ import Layout from "../layouts/Layout.astro";
   #profile-items {
     padding: 0;
     margin: 1.5em 0 0 0;
-    letter-spacing: 0.5em;
+    word-spacing: 1em;
     user-select: none;
     -webkit-user-select: none;
-  }
-
-  #profile-items p {
-    letter-spacing: normal;
-    user-select: text;
-    -webkit-user-select: text;
-  }
-
-  #profile-items a {
-    text-decoration: none;
   }
 
   #introduction {
@@ -250,7 +233,7 @@ import Layout from "../layouts/Layout.astro";
     display: none;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     body {
       font-size: 1em;
     }
@@ -267,6 +250,16 @@ import Layout from "../layouts/Layout.astro";
     }
     #profile-section-wrapper {
       padding: 2em 0;
+    }
+  }
+
+  @media screen and (max-width: 280px) {
+    #profile-section {
+      margin: 1em;
+      min-width: 15em;
+    }
+    #profile-section-wrapper {
+      padding: 1em 0;
     }
   }
 
