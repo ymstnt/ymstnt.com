@@ -25,23 +25,24 @@ html {
 }
 
 body {
-  --background-color: #1e1e2e;
-  --accent: #181825;
-  --accent-darker: #11111b;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
 
-  --surface: #313244;
+  --surface0: #313244;
   --surface1: #45475a;
   --surface2: #585b70;
 
-  --overlay: #6c7086;
+  --overlay0: #6c7086;
   --overlay1: #7f849c;
   --overlay2: #9399b2;
 
   --text: #cdd6f4;
-  --subtext: #a6adc8;
+  --subtext0: #a6adc8;
   --subtext1: #bac2de;
 
   --blue: #89b4fa;
+  --latte-blue: #1e66f5;
 
   --success: #a6e3a1;
   --warning: #a6e3a1;
@@ -52,9 +53,10 @@ body {
 
   --horizontal-margin: 20%;
 
-  background-color: var(--background-color);
+  background-color: var(--base);
   color: var(--text);
 
+  margin: auto;
   width: 100%;
   min-height: 100vh;
   min-height: -webkit-fill-available;
@@ -68,13 +70,6 @@ body {
 
 html {
   font-family: "Inter var", system-ui, sans-serif;
-}
-
-body {
-  background-color: var(--background-color);
-  margin: auto;
-
-
 }
 
 p {
