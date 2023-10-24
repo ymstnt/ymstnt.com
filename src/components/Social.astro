@@ -7,15 +7,31 @@ interface SocialProps {
   href: string;
   title: string;
   id?: string;
+  classes?: string;
 }
 
 export type Props = SocialProps | CustomSocialProps;
 
-const { href, id } = Astro.props as SocialProps & CustomSocialProps;
+const { href, id, classes } = Astro.props as SocialProps & CustomSocialProps;
 ---
 
-<a href={href} rel="me" target="_blank">
+<a href={href} rel="me" target="_blank" class={classes}>
   <slot>
     <slot name="icon" />
   </slot>
 </a>
+
+<style>
+  a {
+    transition: 0.15s ease;
+    transition-property: color;
+  }
+
+  a:hover {
+    color: var(--blue)
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
