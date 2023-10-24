@@ -1,101 +1,6 @@
-class DaySubject {
-  dateTime: Date;
-  subject: string;
-  type: string;
-
-  constructor(dateTime: Date, subject: string, type: string) {
-    this.dateTime = dateTime;
-    this.subject = subject;
-    this.type = type;
-  }
-}
-
-function isSameDay(date1: Date, date2: Date) {
-  return (
-    date1.getFullYear() === date2.getFullYear() &&
-    date1.getMonth() === date2.getMonth() &&
-    date1.getDate() === date2.getDate()
-  );
-}
-
-//Days counter
-function updateDays() {
-  const currentDate: Date = new Date();
-  const finalExamStartDate: Date = new Date("2023-05-08");
-  const endDate: Date = new Date("2023-07-01");
-
-  const timeDiff: number = finalExamStartDate.getTime() - currentDate.getTime();
-  const daysLeft: number = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-  let exams: DaySubject[] = [
-    new DaySubject(
-      new Date("2023-05-08 09:00"),
-      "Magyar nyelv és irodalom",
-      "középszintű"
-    ),
-    new DaySubject(new Date("2023-05-09 09:00"), "Matematika", "közép- és emelt szintű"),
-    new DaySubject(new Date("2023-05-10 09:00"), "Történelem", "közép- és emelt szintű"),
-    new DaySubject(new Date("2023-05-11 09:00"), "Angol nyelv", "közép- és emelt szintű"),
-    new DaySubject(new Date("2023-05-15 08:00"), "Informatika", "középszintű"),
-    new DaySubject(new Date("2023-05-17 09:00"), "Informatika ismeretek", "közép- és emelt szintű"),
-    new DaySubject(new Date("2023-05-22 08:00"), "Informatika", "emelt szintű"),
-  ];
-
-  if (currentDate < finalExamStartDate) {
-    document.querySelector("#countdown").textContent =
-      daysLeft.toString() + " nap";
-  } else if (currentDate >= endDate) {
-    document.querySelector("#countdown-intro").textContent =
-      "Vége az érettségi időszaknak 🎉🎉🎉";
-  } else if (currentDate.getHours() <= 14) {
-    let foundExam: boolean = false;
-    exams.forEach((element) => {
-      if (isSameDay(element.dateTime, currentDate)) {
-        foundExam = true;
-        document.querySelector("#countdown-intro").textContent =
-          "A mai érettségi vizsga:";
-        document.querySelector("#countdown").textContent =
-          element.subject + " (" + element.type + ")";
-        document.querySelector("#when").textContent =
-          "Kezdés: " +
-          element.dateTime.toLocaleTimeString("hu-HU", {
-            hour: "2-digit",
-            minute: "2-digit",
-          }) +
-          "-kor";
-      }
-    });
-    if (!foundExam) {
-      document.querySelector("#countdown-intro").textContent = "Pihenőnap 🌙";
-    }
-  } else {
-    let foundExam: boolean = false;
-    exams.forEach((element) => {
-      if (isSameDay(element.dateTime, currentDate)) {
-        foundExam = true;
-        document.querySelector("#countdown-intro").textContent =
-          "Holnapi érettségi vizsga:";
-        document.querySelector("#countdown").textContent =
-          element.subject + " (" + element.type + ")";
-        document.querySelector("#when").textContent =
-          "Kezdés: " +
-          element.dateTime.toLocaleTimeString("hu-HU", {
-            hour: "2-digit",
-            minute: "2-digit",
-          }) +
-          "-kor";
-      }
-    });
-    if (!foundExam) {
-      document.querySelector("#countdown-intro").textContent = "Pihenőnap 🌙";
-    }
-  }
-}
-
 let generatedLink: string;
 let pressedButton: string;
 
-updateDays();
 formUpdate();
 
 //Érettségi link generator
@@ -134,13 +39,13 @@ function formUpdate() {
   let convertedYear: number = parseInt(year);
 
   //Hide október-november if 2023 is selected using .hidden class
-  if (convertedYear == 2023 && period == "oktober") {
+  if (convertedYear == 2024 && period == "oktober") {
     (<HTMLInputElement>document.querySelector("#oktober")).classList.add("hidden");
     //Select május if október-november is selected and 2023
     (<HTMLInputElement>document.querySelector("#period")).value = "majus";
     period = "majus";
     generatedPeriod = "tavasz";
-  } else if (convertedYear == 2023) {
+  } else if (convertedYear == 2024) {
     (<HTMLInputElement>document.querySelector("#oktober")).classList.add("hidden");
   } else {
     (<HTMLInputElement>document.querySelector("#oktober")).classList.remove("hidden");

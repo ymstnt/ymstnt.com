@@ -5,17 +5,10 @@ import Layout from "../layouts/Layout.astro";
 <script src="../scripts/érettségi.ts"></script>
 
 <Layout
-  title="Érettségi 2023"
-  description="Hasznos dolgok az érettségihez"
+  title="Érettségi link generátor"
+  description="Érettségi link generátor"
   nav="/"
 >
-  <section id="intro">
-    <div id="intro-container" class="container">
-      <h1 id="countdown-intro">A 2023-as májusi érettségiig hátralévő idő:</h1>
-      <h1 id="countdown"></h1>
-      <h2 id="when"></h2>
-    </div>
-  </section>
   <section id="generator">
     <div id="generator-container" class="container">
       <h1>Érettségi link generátor</h1>
@@ -96,12 +89,8 @@ import Layout from "../layouts/Layout.astro";
     padding: 1em;
   }
 
-  #intro {
-    background-color: var(--accent-darker);
-  }
-
   #generator {
-    background-color: var(--accent);
+    background-color: var(--mantle);
   }
 
   .container {
