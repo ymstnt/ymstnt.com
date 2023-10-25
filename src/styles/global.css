@@ -22,9 +22,7 @@ html {
 
 :root {
   color-scheme: dark;
-}
 
-body {
   --base: #1e1e2e;
   --mantle: #181825;
   --crust: #11111b;
@@ -50,7 +48,41 @@ body {
   --selection: rgba(88, 91, 112, 60%);
 
   --cursor: #f5e0dc;
+}
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+
+    --base: #eff1f5;
+    --mantle: #e6e9ef;
+    --crust: #dce0e8;
+
+    --surface0: #ccd0da;
+    --surface1: #bcc0cc;
+    --surface2: #acb0be;
+
+    --overlay0: #9ca0b0;
+    --overlay1: #8c8fa1;
+    --overlay2: #7c7f93;
+
+    --text: #4c4f69;
+    --subtext0: #6c6f85;
+    --subtext1: #5c5f77;
+
+    --blue: #1e66f5;
+    --latte-blue: #1e66f5;
+
+    --success: #40a02b;
+    --warning: #df8e1d;
+    --error: #d20f39;
+    --selection: rgba(172, 176, 190, 60%);
+
+    --cursor: #dc8a78;
+  }
+}
+
+body {
   --horizontal-margin: 20%;
 
   background-color: var(--base);
