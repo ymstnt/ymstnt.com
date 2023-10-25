@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CenteredCard from "../components/CenteredCard.astro";
 ---
 
 <Layout title="404 Not Found" description="Are you lost?" nav="/">
-  <section id="error-section">
+  <CenteredCard maxWidth="30em" bgcolor="var(--mantle)">
     <h1>Oh no!</h1>
     <h3>That page was not found. (404)</h3>
-
     <p>
       You may have followed a broken link or this part of the site is under
       construction.
@@ -18,30 +18,21 @@ import Layout from "../layouts/Layout.astro";
         <span id="homebutton"></span>
       </a>
     </div>
-  </section>
+  </CenteredCard>
 </Layout>
 
 <style>
-  #error-section {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    background: #181825;
-    max-width: 30em;
-    border-radius: 1em;
-    margin: 2em auto;
-    padding: 2em;
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  h1 {
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
   }
 
   #homebutton-container {
     padding: 2px;
     background-color: var(--latte-blue);
     border-radius: 0.5em;
+    min-width: 7em;
     margin: 0 7em;
     cursor: pointer;
     position: relative;
@@ -62,23 +53,21 @@ import Layout from "../layouts/Layout.astro";
     z-index: 1;
   }
 
-  @media (max-width: 500px) {
+  @media screen and (max-width: 800px) {
     body {
       font-size: 1em;
     }
     main {
       padding: 1.5em;
     }
-    #error-section {
-      margin: 2em;
-      min-width: 15em;
-      position: unset;
-      left: unset;
-      top: unset;
-      transform: unset;
-    }
     #homebutton-container {
       margin: 0 5em;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    #homebutton-container {
+      margin: 0;
     }
   }
 </style>
