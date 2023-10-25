@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Socials from "../components/Socials.astro";
 import CenteredCard from "../components/CenteredCard.astro";
+import DividerLine from "../components/DividerLine.astro";
 ---
 
 <Layout title="YMSTNT" description="YMSTNT's personal site" nav="/">
@@ -25,7 +26,7 @@ import CenteredCard from "../components/CenteredCard.astro";
       <span id="pronouns">he/him</span>
     </div>
     <Socials class="socials"/>
-    <div id="divider"></div>
+    <DividerLine/>
     <div id="introduction">
       <p>
         Hi, I'm YMSTNT. <span
@@ -71,16 +72,6 @@ import CenteredCard from "../components/CenteredCard.astro";
     padding: 0.5em;
   }
 
-  #divider {
-    background: linear-gradient(
-      90deg,
-      rgba(0, 52, 141, 1) 0%,
-      rgba(1, 84, 163, 1) 55%,
-      rgba(5, 123, 187, 1) 100%
-    );
-    height: 0.3rem;
-  }
-
   #introduction {
     text-align: left;
   }
@@ -98,44 +89,12 @@ import CenteredCard from "../components/CenteredCard.astro";
     display: none;
   }
 
-  
-
   @media screen and (max-width: 600px) {
     body {
       font-size: 1em;
     }
     main {
       padding: 1.5em;
-    }
-    #profile-section {
-      margin: 2em;
-      min-width: 15em;
-      position: unset;
-      left: unset;
-      top: unset;
-      transform: unset;
-    }
-    #profile-section-wrapper {
-      padding: 2em 0;
-    }
-  }
-
-  @media screen and (max-width: 280px) {
-    #profile-section {
-      margin: 1em;
-      min-width: 15em;
-    }
-    #profile-section-wrapper {
-      padding: 1em 0;
-    }
-  }
-
-  @media (max-height: 700px) {
-    #profile-section {
-      position: unset;
-      left: unset;
-      top: unset;
-      transform: unset;
     }
   }
 </style>

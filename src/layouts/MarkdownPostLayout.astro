@@ -1,5 +1,7 @@
 ---
 import BlogLayout from "./BlogLayout.astro";
+import DividerLine from "../components/DividerLine.astro";
+
 const { frontmatter } = Astro.props;
 
 const dateOptions: object = {
@@ -13,7 +15,6 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
   dateOptions
 );
 ---
-
 <BlogLayout title="TNT's Blog" description="TNT's Blog" nav="/blog">
   <section id="image">
     <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
@@ -33,13 +34,17 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
       ))
     }
   </div>
-  <hr />
-  <span id="article">
+  <DividerLine/>
+  <div id="article">
     <slot />
-  </span>
+  </div>
 </BlogLayout>
 
 <style>
+  body {
+    overflow-y: scroll;
+  }
+
   h1 {
     font-size: 2rem;
     margin-bottom: 0;
@@ -60,7 +65,7 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
 
   tag:hover,
   tag:active {
-    border: var(--blue) 1px solid;
+    border: var(--overlay2) 1px solid;
   }
 
   .ref {
@@ -73,7 +78,6 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
   }
 
   #article {
-    color: var(--text);
     text-align: justify;
   }
 
