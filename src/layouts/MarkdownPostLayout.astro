@@ -15,6 +15,7 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
   dateOptions
 );
 ---
+
 <BlogLayout title="TNT's Blog" description="TNT's Blog" nav="/blog">
   <section id="image">
     <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
@@ -34,17 +35,13 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
       ))
     }
   </div>
-  <DividerLine/>
+  <DividerLine />
   <div id="article">
     <slot />
   </div>
 </BlogLayout>
 
 <style>
-  body {
-    overflow-y: scroll;
-  }
-
   h1 {
     font-size: 2rem;
     margin-bottom: 0;
