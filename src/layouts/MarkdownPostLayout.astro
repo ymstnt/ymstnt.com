@@ -58,6 +58,7 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
     cursor: pointer;
     position: relative;
     line-height: 1.7em;
+    transition: border 0.2s ease-in-out;
   }
 
   tag:hover,
@@ -80,6 +81,10 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
 
   #image img {
     width: 100%;
+  }
+
+  img:not([src]) {
+    display: none;
   }
 
   #date {
