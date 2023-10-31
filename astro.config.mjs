@@ -2,6 +2,12 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ymstnt.com'
+  site: 'https://ymstnt.com',
+  redirects: {
+    '/érettségi': '/erettsegi', 
+  },
+  experimental: {
+    devOverlay: false,
+  },
 });
 
