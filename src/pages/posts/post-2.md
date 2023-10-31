@@ -4,7 +4,7 @@ title: 'Lorem Ipsum'
 pubDate: 2023-02-05
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing...'
 image:
-    url: null 
+    url: https://api.lorem.space/image/crm?w=300&h=250
     alt: null
 tags: ["software", "aquarium", "hardware", "experience", "gaming"]
 ---
