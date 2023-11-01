@@ -6,8 +6,5 @@ export default defineConfig({
   redirects: {
     '/érettségi': '/erettsegi', 
   },
-  experimental: {
-    devOverlay: false,
-  },
 });
 
