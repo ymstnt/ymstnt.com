@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CenteredCardContainer from "../components/CenteredCardContainer.astro";
+---
+
+<script src="../scripts/egyetem.ts"></script>
+
+<Layout
+  title="YMSTNT | Egyetem"
+  description="Egyetemi információk"
+  nav="/"
+>
+  <CenteredCardContainer maxWidth="500px">
+    <div id="week">
+      <h1>Jelenlegi hét:</h1>
+      <h1 id="week-number"></h1>
+    </div>
+  </CenteredCardContainer>
+</Layout>
+
+<style>
+  body {
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+
+  #week {
+    justify-content: center;
+    align-items: center;
+    background: var(--mantle);
+    max-width: 20em;
+    border-radius: 1em;
+    padding: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  #week-number {
+    color: var(--subtext0);
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  p,
+  h1 {
+    margin: 0.7em;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  .small {
+    font-size: 0.9em;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  @media (max-width: 280px) {
+    body {
+      font-size: 1em;
+    }
+    h1 {
+      font-size: 1.9em;
+    }
+    main {
+      padding: 1.5em;
+    }
+  }
+</style>
