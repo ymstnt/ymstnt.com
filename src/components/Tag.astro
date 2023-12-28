@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+---
+
+<tag id="tag" class="{{compact ? 'compact' : ''}}">
+  <slot />
+</tag>
+
+<style>
+  #tag {
+    display: inline-block;
+    background-color: var(--crust);
+    border: var(--crust) 1px solid;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    position: relative;
+    color: var(--subtext1);
+    line-height: 1.7em;
+    transition: border 0.2s ease-in-out;
+  }
+
+  #tag:hover,
+  #tag:active {
+    border: var(--overlay2) 1px solid;
+  }
+
+  .ref {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .compact {
+    border: unset;
+    margin-top: 0.2rem;
+  }
+</style>
