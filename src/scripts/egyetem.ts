@@ -1,4 +1,15 @@
-let firstWeek: Date = new Date(2023, 8, 11);
+let firstWeek: Date = new Date(2024, 1, 12);
+
+function checkDateBefore(givenDate: Date): void {
+  let currentDate = new Date();
+
+  if (currentDate < givenDate){
+    (<HTMLInputElement>document.querySelector('#week-number')).innerText = "Vizsgaidőszak - szünet";
+    (<HTMLInputElement>document.querySelector('#week-number')).style.fontSize = "1.2em";
+  } else {
+    calculateWeekNumber(firstWeek);
+  };
+}
 
 function calculateWeekNumber(givenDate: Date): void {
   let oneWeekInMilliseconds = 7 * 24 * 60 * 60 * 1000;
@@ -9,4 +20,4 @@ function calculateWeekNumber(givenDate: Date): void {
   (<HTMLInputElement>document.querySelector('#week-number')).innerText = weeksPassed.toString() + ".";
 }
 
-calculateWeekNumber(firstWeek);
+checkDateBefore(firstWeek);
