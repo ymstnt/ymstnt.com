@@ -4,7 +4,9 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://ymstnt.com',
   redirects: {
-    '/érettségi': '/erettsegi', 
+    '/érettségi': '/erettsegi',
+    '/egyetem': '/uni',
+    '/university': '/uni',
   },
 });
 

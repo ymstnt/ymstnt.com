@@ -12,7 +12,7 @@ function checkDateBefore(): void {
   console.log(currentDate.getDay());
   let isInExamPeriod = examPeriods.some(period => currentDate >= period.start && currentDate <= period.end);
   if (isInExamPeriod){
-    (<HTMLInputElement>document.querySelector('#week-number')).innerText = "Vizsgaidőszak - szünet";
+    (<HTMLInputElement>document.querySelector('#week-number')).innerText = "Exams - break";
     (<HTMLInputElement>document.querySelector('#week-number')).style.fontSize = "1.2em";
   } else {
     let lastExamPeriodEnd = getLastExamPeriodEnd();
@@ -38,7 +38,25 @@ function calculateWeekNumber(firstWeek: Date): void {
   let timeDifference = currentDate.getTime() - firstWeek.getTime();
   let weeksPassed = Math.floor(timeDifference / oneWeekInMilliseconds) + 1;
 
-  (<HTMLInputElement>document.querySelector('#week-number')).innerText = (weeksPassed).toString() + ".";
+  let suffix = ".";
+  if (weeksPassed == 1)
+  {
+    suffix = "st";
+  }
+  else if (weeksPassed == 2)
+  {
+    suffix = "nd";
+  }
+  else if (weeksPassed == 3)
+  {
+    suffix = "rd";
+  }
+  else
+  {
+    suffix = "th";
+  }
+  
+  (<HTMLInputElement>document.querySelector('#week-number')).innerText = (weeksPassed).toString() + suffix;
 }
 
 document.addEventListener("astro:page-load", () => checkDateBefore());
