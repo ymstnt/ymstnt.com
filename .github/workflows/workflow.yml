@@ -19,8 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: bun i
+        run: npm i
       - name: Build production bundle
-        run: bun run build --outDir ${{secrets.OUT_DIR}}
+        run: npm run build --outDir ${{secrets.OUT_DIR}}
       - name: Fix perms for nginx
         run: chmod -R 755 ${{secrets.OUT_DIR}}
