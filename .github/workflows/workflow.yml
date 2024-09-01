@@ -21,6 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm i
       - name: Build production bundle
-        run: npm run build --outDir ${{secrets.OUT_DIR}}
+        run: npm run build -- --outDir ${{secrets.OUT_DIR}}
       - name: Fix perms for nginx
         run: chmod -R 755 ${{secrets.OUT_DIR}}
