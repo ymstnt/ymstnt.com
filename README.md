@@ -1,8 +1,8 @@
-# YMSTNT's personal website
+# ymstnt's personal website
 
 ## Getting started
 ```
-git clone git@github.com:YMSTNT/ymstnt.com.git
+git clone git@github.com:ymstnt/ymstnt.com.git
 cd ymstnt.com
 npm install
 npm run dev
